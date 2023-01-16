@@ -12,24 +12,16 @@
     <div class="main-container">
         <div class="container">
             <header id="main-header">
-                <?php require_once $_SERVER['DOCUMENT_ROOT'].'.\phpmotors\common\header.php'?>
-            <header id="main-header">
+                  <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\header.php'?>
+            </header>
             <nav class="main-nav">
-                <ul class="navbar">
-                    <li>Home</li>
-                    <li><span class="currentpage">Classic</span> </li>
-                    <li>Sports</li>
-                    <li>SUV</li>
-                    <li>Trucks</li>
-                    <li>Used</li>
-                </ul>
+                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\navigate.php'?>
             </nav>
             <main id="showcase">
                 Content Title Here
             </main>
             <footer id="main-footer">
-                <p>@PHP Motors, All rights Reserved.</p>
-                <p>All images used are believed to be in "Fair Use". Please notify the author if any are not and they will be removed</p>
+                <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\footer.php'?>
             </footer>
         </div>
     </div>
