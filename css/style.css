@@ -1,0 +1,82 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #ffffff;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+}
+
+ul li {
+  list-style: none;
+  color: #333;
+}
+.main-container {
+  background: url("../images/site/checkerboard.jpg");
+  height: 100vh;
+  width: 100vw;
+  padding: 100px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 10px;
+  border: 3px solid #4c96d7;
+  border-radius: 5px;
+}
+
+#main-header {
+  max-width: 1400px;
+  padding: 10px;
+}
+
+#main-header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-header ul li img {
+  width: 100px;
+}
+
+.main-nav .navbar {
+  background: #3a3a3a;
+  padding: 10px;
+}
+
+.main-nav .navbar {
+  display: flex;
+  height: 60%;
+}
+
+.main-nav .navbar li {
+  color: #fff;
+  padding: 5px;
+}
+
+#showcase {
+  color: #3a3a3a;
+}
+
+#main-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    flex-direction: column;
+  color: #3a3a3a;
+  font-size: 10px;
+}
+
+.currentpage {
+    background: #4c96d7;
+    padding: 10px;
+}
