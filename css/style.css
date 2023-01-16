@@ -1,5 +1,4 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 
 * {
   padding: 0;
@@ -9,7 +8,7 @@
 
 body {
   color: #ffffff;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
 }
 
@@ -17,17 +16,24 @@ ul li {
   list-style: none;
   color: #333;
 }
+
+.black {
+  color: #3a3a3a;
+}
+
 .main-container {
-  background: url("../images/site/checkerboard.jpg");
-  height: 100vh;
+  display: block;
+  background-image: url("../images/site/checkerboard.jpg");
   width: 100vw;
-  padding: 100px;
+  height: 200vh;
+  background-size: 500px;
+  padding: 10px 0;
 }
 .container {
-  max-width: 600px;
+  display: block;
   margin: auto;
+  max-width: 1000px;
   background: #ffffff;
-  padding: 10px;
   border: 3px solid #4c96d7;
   border-radius: 5px;
 }
@@ -50,6 +56,7 @@ ul li {
 .main-nav .navbar {
   background: #3a3a3a;
   padding: 10px;
+  width: 100%;
 }
 
 .main-nav .navbar {
@@ -64,19 +71,111 @@ ul li {
 
 #showcase {
   color: #3a3a3a;
+  padding: 20px;
 }
 
-#main-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:auto;
-    flex-direction: column;
+.mg-btm {
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-top: 2px solid #3a3a3a;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
   color: #3a3a3a;
   font-size: 10px;
 }
 
+.footer p {
+  text-align: center;
+}
+
 .currentpage {
-    background: #4c96d7;
-    padding: 10px;
+  background: #4c96d7;
+  padding: 10px;
+}
+
+.car-details {
+  display: block;
+  padding: 10px;
+  color: #4c96d7;
+  background: url("../images/delorean.jpg") no-repeat;
+  background-size: 700px;
+  height: 350px;
+}
+
+.car-details .btn {
+  text-align: center;
+  background: #4c96d7;
+  padding: 7px;
+  color: #3a3a3a;
+  margin-top: 17px;
+}
+
+.car-details img {
+  padding: 20px;
+  width: 500px;
+}
+
+.upgrades {
+  display: flex;
+}
+
+.Deloreanupgrade {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.Deloreanupgrade p {
+  font-size: 10px;
+}
+.Deloreanupgrade h1 {
+  grid-column: 1/3;
+  font-weight: bolder;
+}
+
+.box1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.box2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.box3 {
+  grid-column: 1;
+  grid-row: 3;
+}
+.box4 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.image-wrapper {
+  width: 200px;
+  height: 70px;
+  border: 1px solid #8d8d88;
+  background: #4c96d7;
+}
+
+.image-wrapper img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 50px;
+}
+
+.review {
+  padding: 10px;
+  line-height: 1.7em;
+}
+
+.review ul li {
+  list-style: disc;
 }
