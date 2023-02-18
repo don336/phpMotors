@@ -12,16 +12,35 @@
     border: 1px solid #3a3a3a;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 530px;
-    left: 300px;
-    margin: auto;
     padding: 20px;
-    font-size: 30px;
+    font-size: 10px;
+  }
+
+  .regbtn,
+  .signbtn {
+    display: block;
+    color: #3ede3e;
+    background: #3a3a3a;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
   }
 
   .main-container {
     height: 175vh;
     padding: 10px;
+  }
+
+  .grid-container {
+    display: block;
+  }
+
+  .cntBtn {
+    margin: 0;
+  }
+
+  .pwd {
+    font-size: 12px;
   }
 }

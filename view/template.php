@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css" media="screen">
     <title>PHP Motors</title>
 </head>
@@ -12,16 +15,16 @@
     <div class="main-container">
         <div class="container">
             <header id="main-header">
-                  <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\header.php'?>
+                  <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
             </header>
             <nav class="main-nav">
-                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\navigate.php'?>
+                <?php echo $navList?>
             </nav>
             <main id="showcase">
                 Content Title Here
             </main>
             <footer id="main-footer">
-                <?php require_once $_SERVER['DOCUMENT_ROOT'].'/dashboard\phpMotors\common\footer.php'?>
+                <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/footer.php'?>
             </footer>
         </div>
     </div>

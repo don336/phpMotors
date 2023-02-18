@@ -1,6 +1,8 @@
 <ul class="head">
     <li>
-        <img src="./images/site/logo.png" alt="myImage">
+        <a href="/phpmotors/">
+        <img src="/phpmotors/images/site/logo.png" alt="myImage">
+        </a>
     </li>
-    <li>My Acount</li>
+    <li><a class="black" href="/phpmotors/accounts/index.php?action=Login">My Account</a></li>
 </ul>
