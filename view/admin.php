@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    // Create/start Session 
+    if(!$_SESSION['loggedin']){
+        header('Location: /phpmotors/');
+    }
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +22,7 @@
         <div class="container">
             <header id="main-header">
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
-                   <h1 class="black">
+                  <h1 class="black">
                         <?php
                         if(isset($_SESSION['loggedin'])){
                             echo "Welcome";
@@ -30,25 +35,16 @@
                 <?php echo $navList?>
             </nav>
             <main id="showcase">
-                <?php 
-                    if(isset($message)){
-                    echo $message;
+                <h1 class="black"><?php echo $_SESSION['clientData']['clientFirstname'];?></h1>
+                <ul>
+                    <li>FirstName:<?php echo $_SESSION['clientData']['clientFirstname'];?></li>
+                    <li>Email:<?php echo $_SESSION['clientData']['clientEmail'];?></li>
+                </ul>
+                <?php
+                    if($_SESSION['clientData']['clientLevel']>1){
+                        echo "<p><a href='/phpMotors/vehicles'>Vehicle Management</a></p>";
                     }
                 ?>
-                
-                <form class="login-form" action="/phpmotors/vehicles/index.php" method="post">
-                    <h1>Add Classification</h1>
-                        <label>
-                            Classification:
-                            <input type="text" name="classificationName" placeholder="Classification Name"
-                            <?php 
-                                if(isset($classificationName)){echo "value='$classificationName'";}
-                            ?>
-                            maxlength="30" required>
-                        </label>
-                    <input type="submit" value="Add Classification" class="regbtn cntBtn">
-                    <input type="hidden" name="action" value="classification">
-                </form>
             </main>
             <footer id="main-footer">
                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/footer.php'?>

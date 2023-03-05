@@ -16,28 +16,45 @@
         <div class="container">
             <header id="main-header">
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
+                   <h1 class="black">
+                        Welcome
+                        <?php
+                        if(isset($_SESSION['loggedin'])){
+                            echo $_SESSION['clientData']['clientFirstname'];
+                        }
+                        ?>
+                  </h1>
             </header>
             <nav class="main-nav">
                 <?php echo $navList?>
             </nav>
             <main id="showcase">
                  <?php 
-                    if(isset($message)){
-                    echo $message;
+                    if (isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
                     }
                 ?>
-                <form class="login-form">
+                <form class="login-form" method="post" action="/phpmotors/accounts/">
                     <label>
                         <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Email" requierd>
+                        <input type="email" name="clientEmail" placeholder="Email" <?php 
+                        $clientEmail = '';
+                        if(isset($clientEmail)){echo "value='$clientEmail'";}?> required>
                     </label>
                     <label>
                         <label for="password">Password</label>
                          <span class="pwd">Password should have at least 8 characters and has at least 1 uppercase character, 1 number and 1 special character</span>
                         <label for="password">Password:</label>
-                        <input type="password" name="clientPassword" placeholder="Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"> 
+                        <input type="password" name="clientPassword" placeholder="Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" requirerd> 
                     </label>
-                    <button type="submit" class="signbtn">Sign In</button>
+
+                    
+                    <input type="submit" value="Sign In" class="signbtn">
+
+
+                    <input type="hidden" name="action" value="Login">
+
+
                     <p>Don't have an Account <a href="/phpmotors/accounts/index.php?action=Registration">Sign Up</a></p>
                 </form>
             </main>

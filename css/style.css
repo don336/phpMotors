@@ -208,7 +208,8 @@ ul li a {
   display: block;
   margin: auto;
   padding: 10px;
-  background: #092327;
+  background: #bbcdcf;
+  color: #333;
   border-radius: 5px;
 }
 
@@ -222,24 +223,28 @@ ul li a {
 }
 
 .login-form label {
-  color: #ffffff;
+  color: #333;
   width: 60%;
 }
 
 .login-form p {
-  color: #fff;
+  color: #333;
 }
 
 .login-form p a {
-  color: #3ede3e;
+  color: #2b2279;
+}
+
+.login-form h1 {
+  color: #333;
 }
 
 .btn,
 .regbtn,
 .signbtn {
   display: block;
-  color: #3ede3e;
-  background: #3a3a3a;
+  color: #12175a;
+  background: #fff;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -249,8 +254,8 @@ ul li a {
 .drop-down {
   display: inline;
   border: none;
-  background: none;
-  color: #fff;
+  background: #fff;
+  color: #333;
 }
 
 .grid-container {

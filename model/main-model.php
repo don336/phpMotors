@@ -1,5 +1,3 @@
-<!-- Main PHP Motors Model -->
-
 <?php
 function getClassifications(){
  // Create a connection object from the phpmotors connection function

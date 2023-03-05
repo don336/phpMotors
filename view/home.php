@@ -15,15 +15,20 @@
     <!-- <img src="./images/site/checkerboard.jpg" alt="mi"> -->
     <div class="main-container">
         <div class="container">
-            <header id="main-header">
+            <header id="main-header" class="black" >
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpmotors/common/header.php'?>
+                    <?php
+                        if(isset($_SESSION['loggedin'])){
+                            $welmsg;
+                        }
+                    ?>
             </header>
             <nav class="main-nav">
                   <?php echo $navList?>
             </nav>
             <main id="showcase">
                 <section class="advert">
-                    <h1>Welcome to PHP Motors!</h1>
+                    <h1 class="black">Welcome to PHP Motors!</h1>
                     <div class="car-details">
                             <h2>DMC Delorean</h2>
                             <p>3 Cyp holders</p>

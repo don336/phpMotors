@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +18,19 @@
         <div class="container">
             <header id="main-header">
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
+                   <h1>
+                    <?php
+                        if(isset($_SESSION['loggedin'])){
+                            echo $welmsg;
+                        }
+                    ?>
+                  </h1>
             </header>
             <nav class="main-nav">
                 <?php echo $navList?>
             </nav>
             <main id="showcase">
-                Content Title Here
+                  content Area
             </main>
             <footer id="main-footer">
                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/footer.php'?>

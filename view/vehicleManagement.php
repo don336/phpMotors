@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header('location: /phpmotors/');
+ exit;
+}
+
+if (isset($_SESSION['message'])) {
+ $message = $_SESSION['message'];
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,24 +20,54 @@
     <title>PHP Motors</title>
 </head>
 <body>
-    <!-- <img src="./images/site/checkerboard.jpg" alt="mi"> -->
     <div class="main-container">
         <div class="container">
             <header id="main-header">
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
+                   <h1 class="black">
+                        <?php
+                            if($_SESSION['loggedin']){
+                                echo "Welcome";
+                                echo $_SESSION['clientData']['clientFirstname'];
+                            }
+                        ?>
+                  </h1>
             </header>
             <nav class="main-nav">
                 <?php echo $navList?>
             </nav>
             <main id="showcase">
-                <a href="/phpmotors/vehicles/index.php?action=AddClassification">Add Classification</a>
-                <a href="/phpmotors/vehicles/index.php?action=AddVehicle">Add Vehicle</a>
+                <?php
+                    if($_SESSION['loggedin']){
+                        echo "<a href='/phpmotors/vehicles/index.php?action=AddClassification'>Add Classification</a>";
+                        echo '<a href="/phpmotors/vehicles/index.php?action=AddVehicle">Add Vehicle</a>';
+                    }
+                    else{
+                        header('Location: /phpmotors');
+                    }
+                         
+                ?>
+                <?php
+                    if (isset($message)) { 
+                        echo $message; 
+                    } 
+                    if (isset($classificationList)) { 
+                        echo '<h2>Vehicles By Classification</h2>'; 
+                        echo '<p>Choose a classification to see those vehicles</p>'; 
+                        echo $classificationList; 
+                    }
+                ?>
+                <noscript>
+                    <p><strong>JavaScript Must Be Enabled to Use this Page.</strong></p>
+                </noscript>
+                <table id="inventoryDisplay"></table>
             </main>
             <footer id="main-footer">
                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/footer.php'?>
             </footer>
         </div>
     </div>
-
+<script src="../js/inventory.js"></script>
 </body>
 </html>
+<?php unset($_SESSION['message']); ?>
