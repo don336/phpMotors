@@ -1,8 +1,16 @@
 @media only screen and (max-width: 700px) {
+  a:hover {
+    color: #12175a;
+  }
   .upgrades {
     display: block;
-    padding: 100px 0 10px;
-    margin-top: 30px;
+    padding: 50px 0 10px;
+  }
+
+  #showCase {
+    font-size: small;
+    width: fit-content;
+    height: fit-content;
   }
 
   .btn {
@@ -27,6 +35,11 @@
     width: 100%;
   }
 
+  .regbtn:hover {
+    background: #333;
+    color: #fff;
+  }
+
   .main-container {
     height: 175vh;
     padding: 10px;
@@ -42,5 +55,43 @@
 
   .pwd {
     font-size: 12px;
+  }
+
+  #inv-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+  }
+
+  #inv-display h2 {
+    font-size: 1rem;
+  }
+
+  #inv-display li {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1 0 auto;
+    text-align: center;
+    height: 250px;
+  }
+
+  #inv-display div {
+    width: 100%;
+  }
+
+  #detailContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .grid1 img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
 }

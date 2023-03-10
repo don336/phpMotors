@@ -58,3 +58,63 @@ function getClient($clientEmail){
     return $clientData;
 
 }
+function getClientInfo($clientId){
+    $db = phpmotorsConnect();
+    $sql = 'SELECT * FROM clients WHERE clientId = :clientId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+    $stmt->execute();
+    $clientInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $clientInfo;
+}
+function updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId){
+    $db = phpmotorsConnect();
+
+    // The SQL Statement
+    $sql = 'UPDATE clients SET clientFirstname = :clientFirstname, clientLastname = :clientLastname, 
+	clientEmail = :clientEmail WHERE clientId = :clientId';
+
+    // Create the prepared statement using the phpmotors connection
+    $stmt = $db->prepare($sql);
+
+    // The next four lines replace the placeholder in the SQL
+    // statement with actual values in the variales and tells the database the types of data it is
+
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+    // Insert the data
+    $stmt->execute();
+    // Ask how many rows changed as a result of our insert
+    $rowsChanged = $stmt->rowCount();
+    // Close the database interaction
+    $stmt->closeCursor();
+    // Return the indication of the succes (rows changed)
+    return $rowsChanged;
+}
+
+function pwdUpdate($hashedPassword, $clientId){
+    $db = phpmotorsConnect();
+
+    // The SQL Statement
+    $sql = 'UPDATE clients SET clientPassword = :hashedPassword WHERE clientId = :clientId';
+
+    // Create the prepared statement using the phpmotors connection
+    $stmt = $db->prepare($sql);
+
+    // The next four lines replace the placeholder in the SQL
+    // statement with actual values in the variales and tells the database the types of data it is
+
+    $stmt->bindValue(':hashedPassword', $hashedPassword, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+    // Insert the data
+    $stmt->execute();
+    // Ask how many rows changed as a result of our insert
+    $rowsChanged = $stmt->rowCount();
+    // Close the database interaction
+    $stmt->closeCursor();
+    // Return the indication of the succes (rows changed)
+    return $rowsChanged;
+}

@@ -36,13 +36,29 @@
             </nav>
             <main id="showcase">
                 <h1 class="black"><?php echo $_SESSION['clientData']['clientFirstname'];?></h1>
+                <p>You are logged in.</p>
+                <br>
+                <p class="black">
+                    <?php 
+                    if(isset($message)){
+                    echo $message;
+                    }
+                ?>
+                </p>
                 <ul>
                     <li>FirstName:<?php echo $_SESSION['clientData']['clientFirstname'];?></li>
                     <li>Email:<?php echo $_SESSION['clientData']['clientEmail'];?></li>
                 </ul>
+                <br>
+                <h2>Account Management</h2>
+                <p>Use this link to update account information.</p>
+                <a href="/phpmotors/accounts/index.php?action=clientUpdt&clientId=<?php  echo $_SESSION['clientData']['clientId'];?>">Update Account Information</a>
+                <br>
                 <?php
                     if($_SESSION['clientData']['clientLevel']>1){
-                        echo "<p><a href='/phpMotors/vehicles'>Vehicle Management</a></p>";
+                        echo "<h2>Inventory Management</h2>
+                        <p>Use this link to manage the inventory</p>";
+                        echo '<a href="/phpmotors/vehicles">Vehicle Management</a>';
                     }
                 ?>
             </main>

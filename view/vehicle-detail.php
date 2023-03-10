@@ -9,7 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css" media="screen">
     <link rel="stylesheet" href="../css/mobile.css" media="screen">
-    <title>PHP Motors</title>
+    <title>
+        <?php if(isset($vehicle['invMake'])){ 
+	    echo "$vehicle[invMake] $vehicle[invModel]";} ?> | PHP Motors
+    </title>
 </head>
 <body>
     <!-- <img src="./images/site/checkerboard.jpg" alt="mi"> -->
@@ -17,14 +20,6 @@
         <div class="container">
             <header id="main-header">
                   <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/header.php'?>
-                   <h1 class="black">
-                        <?php
-                        if(isset($_SESSION['loggedin'])){
-                            echo "Welcome";
-                            echo $_SESSION['clientData']['clientFirstname'];
-                        }
-                        ?>
-                   </h1>
             </header>
             <nav class="main-nav">
                 <?php echo $navList?>
@@ -35,20 +30,9 @@
                     echo $message;
                     }
                 ?>
-                
-                <form class="login-form" action="/phpmotors/vehicles/index.php" method="post">
-                    <h1>Add Classification</h1>
-                        <label>
-                            Classification:
-                            <input type="text" name="classificationName" placeholder="Classification Name"
-                            <?php 
-                                if(isset($classificationName)){echo "value='$classificationName'";}
-                            ?>
-                            maxlength="30" required>
-                        </label>
-                    <input type="submit" value="Add Classification" class="regbtn cntBtn">
-                    <input type="hidden" name="action" value="Classification">
-                </form>
+                <?php if(isset($vehicleDetail)){
+                echo $vehicleDetail;
+                } ?>
             </main>
             <footer id="main-footer">
                 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/phpMotors/common/footer.php'?>

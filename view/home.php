@@ -39,7 +39,7 @@
                 </section>
                 <section class="upgrades">
                     <div class="Deloreanupgrade">
-                        <h1>Delorean Upgrade</h1>
+                        <h1 class="black">Delorean Upgrade</h1>
                         <div class="box1">
                             <div class="image-wrapper">
                                 <img src="./images/upgrades/flux-cap.png" alt="car_upgrade">

@@ -24,7 +24,7 @@ switch ($action){
     case 'AddClassification':
         include '../view/addClassification.php';
         exit;
-    case 'classification':
+    case 'Classification':
         //Filter and store the data
         $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
@@ -150,6 +150,31 @@ switch ($action){
             exit;
         }
         break;
+      
+    case 'classification':
+        $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $vehicles = getVehiclesByClassification($classificationName);
+
+        if(!count($vehicles)){
+            $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
+        } else {
+            $vehicleDisplay = buildVehiclesDisplay($vehicles);
+        }
+        include '../view/classification.php';
+        break;
+    case 'vehicleDetail':
+        $invId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_NUMBER_INT);
+     
+        $vehicle = getVehicleById($invId);
+
+        if(!$vehicle){
+            $message = "<p class='notice'>Sorry, details not found.</p>";
+        } else {
+            $vehicleDetail = buildVehiclesDetails($vehicle);
+        }
+        include '../view/vehicle-detail.php';
+           break;
+
     default: 
          $classificationList = buildClassificationList($classifications);
             
